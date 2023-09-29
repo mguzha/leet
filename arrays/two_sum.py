@@ -19,6 +19,21 @@ class Solution:
                 if number_i + number_j == target:
                     return [i, j]
 
+    def _improved_solution(self, nums: List[int], target: int) -> List[int]:
+        """
+
+
+        :param nums:
+        :param target:
+        :return:
+        """
+        for i, number_i in enumerate(nums):
+            for j, number_j in enumerate(nums[i + 1:]):
+                # if i == j:
+                #     continue
+                if number_i + number_j == target:
+                    return [i, i + 1 + j]
+
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         """
         https://leetcode.com/problems/two-sum/
@@ -36,10 +51,12 @@ class Solution:
         :param target:
         :return:
         """
-        return self._brute_force(nums, target)
+        # return self._brute_force(nums, target)
+        return self._improved_solution(nums, target)
 
     def run_test(self):
         for i, (data, target, gt) in enumerate([
+            ([2,4,1,93,2], 94, [2, 3]),
             ([2,7,11,15], 9, [0, 1]),
             ([3,2,4], 6, [1, 2]),
             ([3,3], 6, [0, 1]),
