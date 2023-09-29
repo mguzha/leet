@@ -1,6 +1,6 @@
 
 # Press the green button in the gutter to run the script.
-from arrays.two_sum import Solution
+from arrays.rotate_array import Solution
 
 if __name__ == '__main__':
     s = Solution()
