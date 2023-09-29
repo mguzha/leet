@@ -4,7 +4,7 @@ from log import logger
 
 
 class Solution:
-    def _brute_force(self, nums: List[int], target: int) -> List[int]:
+    def _brute_force_solution(self, nums: List[int], target: int) -> List[int]:
         """
         https://leetcode.com/problems/two-sum/submissions/1062209943/
 
@@ -19,14 +19,30 @@ class Solution:
                 if number_i + number_j == target:
                     return [i, j]
 
-    def _improved_solution(self, nums: List[int], target: int) -> List[int]:
+    def _improved_brute_force_solution(self, nums: List[int], target: int) -> List[int]:
         """
-
+        https://leetcode.com/problems/two-sum/submissions/1062278489/
 
         :param nums:
         :param target:
         :return:
         """
+        for i, number_i in enumerate(nums):
+            for j, number_j in enumerate(nums[i + 1:]):
+                # if i == j:
+                #     continue
+                if number_i + number_j == target:
+                    return [i, i + 1 + j]
+
+    def _sorted_solution(self, nums: List[int], target: int) -> List[int]:
+        """
+        :param nums:
+        :param target:
+        :return:
+        """
+        sorted_nums = sorted(nums)  # nlog(n)
+        original_idx = sorted(range(len(nums)), key=lambda idx: nums[idx])  # nlog(n)
+
         for i, number_i in enumerate(nums):
             for j, number_j in enumerate(nums[i + 1:]):
                 # if i == j:
@@ -51,8 +67,9 @@ class Solution:
         :param target:
         :return:
         """
-        # return self._brute_force(nums, target)
-        return self._improved_solution(nums, target)
+        # return self._brute_force_solution(nums, target)
+        # return self._improved_brute_force_solution(nums, target)
+        return self._sorted_solution(nums, target)
 
     def run_test(self):
         for i, (data, target, gt) in enumerate([
