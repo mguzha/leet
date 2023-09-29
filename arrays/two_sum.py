@@ -5,7 +5,13 @@ from log import logger
 
 class Solution:
     def _brute_force(self, nums: List[int], target: int) -> List[int]:
-        # ([2, 7, 11, 15], 9)
+        """
+        https://leetcode.com/problems/two-sum/submissions/1062209943/
+
+        :param nums:
+        :param target:
+        :return:
+        """
         for i, number_i in enumerate(nums):
             for j, number_j in enumerate(nums):
                 if i == j:
