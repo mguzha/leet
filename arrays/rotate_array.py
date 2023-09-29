@@ -7,6 +7,8 @@ class Solution:
     def _brute_force_solution(self, nums: List[int], k: int) -> None:
         """
         https://leetcode.com/problems/rotate-array/submissions/1062368088/
+        https://stepik.org/lesson/561776/step/2?unit=555787
+        https://stepik.org/lesson/356978/step/1?unit=341069
 
         :param nums:
         :param k:
