@@ -4,6 +4,21 @@ from log import logger
 
 
 class Solution:
+    def _linear_solution_set(self, nums: List[int]) -> int:
+        result = {nums[0]}
+
+        for n in nums[1:]:
+            if n not in result:
+                if len(result) == 3:
+                    min_res = min(list(result))
+                    if n > min_res:
+                        result.add(n)
+                        result = result - {min_res}
+                else:
+                    result.add(n)
+
+        return min(list(result)) if len(result) == 3 else max(list(result))
+
     def _linear_solution(self, nums: List[int]) -> int:
         first_max = nums[0]
         second_max = None
@@ -47,17 +62,17 @@ class Solution:
         :param nums:
         :return:
         """
-        return self._linear_solution(nums)
+        return self._linear_solution_set(nums)
 
     def run_test(self):
         for i, (data, gt) in enumerate([
-            # ([33,400,1, 30, 234], 33),
-            # ([3,2,1], 1),
-            # ([1,2], 2),
-            # ([10], 10),
-            # ([2,2,3,1], 1),
-            # ([2,2,3,3,1,1,1], 1),
-            # ([1, 2, -2147483648], -2147483648),
+            ([33,400,1, 30, 234], 33),
+            ([3,2,1], 1),
+            ([1,2], 2),
+            ([10], 10),
+            ([2,2,3,1], 1),
+            ([2,2,3,3,1,1,1], 1),
+            ([1, 2, -2147483648], -2147483648),
             ([3,3,4,3,4,3,0,3,3], 0),
         ]):
             pred = self.thirdMax(data)
