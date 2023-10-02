@@ -1,6 +1,6 @@
 
 # Press the green button in the gutter to run the script.
-from arrays.search_insert import Solution
+from arrays.majority_element import Solution
 
 if __name__ == '__main__':
     s = Solution()

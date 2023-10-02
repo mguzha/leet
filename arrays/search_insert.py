@@ -34,7 +34,7 @@ class Solution:
             elif target < nums[middle_idx]:
                 # go left
                 nums = nums[:middle_idx]
-                initial_middle_idx = initial_middle_idx if n_counter > 1 else initial_middle_idx - middle_idx  # max(, 0)
+                initial_middle_idx = initial_middle_idx if n_counter > 1 else initial_middle_idx - middle_idx
 
             elif target > nums[middle_idx]:
                 # go right
