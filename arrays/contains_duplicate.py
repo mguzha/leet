@@ -22,11 +22,15 @@ class Solution:
         return False
 
     def _brute_force_solution(self, nums: List[int]) -> bool:
-        hash_map = {}
+        hash_map = set()
+        # for n in nums:
+        #     hash_map[n] = hash_map.get(n, 0) + 1
+        #     if hash_map[n] == 2:
+        #         return True
         for n in nums:
-            hash_map[n] = hash_map.get(n, 0) + 1
-            if hash_map[n] == 2:
+            if n in hash_map:
                 return True
+            hash_map.add(n)
 
         return False
 
@@ -46,8 +50,8 @@ class Solution:
         :return:
         """
         # return self._sorting_solution(nums)
-        # return self._brute_force_solution(nums)
-        return self._set_solution(nums)
+        return self._brute_force_solution(nums)
+        # return self._set_solution(nums)
 
     def run_test(self):
         for i, (data, gt) in enumerate([
