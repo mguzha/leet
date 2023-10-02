@@ -4,6 +4,11 @@ from log import logger
 
 
 class Solution:
+    def _sorting_solution(self, nums: List[int]) -> int:
+        nums.sort()
+        n = len(nums)
+        return nums[n // 2]
+
     def _brute_force_solution(self, nums: List[int]) -> int:
         n_major_threshold = len(nums) // 2
         res = {}
@@ -34,7 +39,6 @@ class Solution:
         -109 <= nums[i] <= 109
 
         :param nums:
-        :param target:
         :return:
         """
         return self._brute_force_solution(nums)
