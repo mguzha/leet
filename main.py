@@ -1,6 +1,6 @@
 
 # Press the green button in the gutter to run the script.
-from arrays.rotate_array import Solution
+from arrays.search_insert import Solution
 
 if __name__ == '__main__':
     s = Solution()
